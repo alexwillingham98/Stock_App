@@ -28,9 +28,18 @@ jobs:
         
     - name: Set up Firebase credentials
       run: |
-        echo "${{ secrets.FIREBASE_CREDENTIALS }}" > firebase_credentials.json
-        echo "\"private_key\": \"${{ secrets.FIREBASE_PRIVATE_KEY }}\"" >> firebase_credentials.json
-        echo "\"client_x509_cert_url\: \"${{ secrets.FIREBASE_CLIENT_URL }}\"" >> firebase_credentials.json
+        echo "{" > firebase_credentials.json
+        echo "\"type\": \"${{ secrets.FIREBASE_TYPE }}\"," >> firebase_credentials.json
+        echo "\"project_id\": \"${{ secrets.FIREBASE_PROJECT_ID }}\"," >> firebase_credentials.json
+        echo "\"private_key_id\": \"${{ secrets.FIREBASE_PRIVATE_KEY_ID }}\"," >> firebase_credentials.json
+        echo "\"private_key\": \"${{ secrets.FIREBASE_PRIVATE_KEY }}\"," >> firebase_credentials.json
+        echo "\"client_email\": \"${{ secrets.FIREBASE_CLIENT_EMAIL }}\"," >> firebase_credentials.json
+        echo "\"client_id\": \"${{ secrets.FIREBASE_CLIENT_ID }}\"," >> firebase_credentials.json
+        echo "\"auth_uri\": \"${{ secrets.FIREBASE_AUTH_URI }}\"," >> firebase_credentials.json
+        echo "\"token_uri\": \"${{ secrets.FIREBASE_TOKEN_URI }}\"," >> firebase_credentials.json
+        echo "\"auth_provider_x509_cert_url\": \"${{ secrets.FIREBASE_AUTH_PROVIDER_URL }}\"," >> firebase_credentials.json
+        echo "\"client_x509_cert_url\": \"${{ secrets.FIREBASE_CIENT_URL }}\"" >> firebase_credentials.json
+        echo "}" >> firebase_credentials.json
     # Step 4: Run your Python script
     - name: Run Python script
       run: python get_top_100_stocks.py  # Replace with the actual path to your Python script
