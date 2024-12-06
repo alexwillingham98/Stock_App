@@ -1,0 +1,32 @@
+name: Run Python Script Every Hour
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Runs every hour at minute 0
+  workflow_dispatch:  # Allows manual trigger of the workflow
+
+jobs:
+  run_python_script:
+    runs-on: ubuntu-latest  # You can choose the OS for your job (e.g., ubuntu-latest)
+
+    steps:
+    # Step 1: Check out the code
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Step 2: Set up Python environment
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'  # Use the Python version you need
+
+    # Step 3: Install dependencies (if you have any)
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # Make sure you have a requirements.txt file
+
+    # Step 4: Run your Python script
+    - name: Run Python script
+      run: python my_script.py  # Replace with the actual path to your Python script
+
