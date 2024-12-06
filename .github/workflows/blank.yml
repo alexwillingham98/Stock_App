@@ -25,7 +25,10 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt  # Make sure you have a requirements.txt file
-
+        
+    - name: Set up Firebase credentials
+      run: |
+        echo "${{ secrets.FIREBASE_CREDENTIALS }}" > firebase_credentials.json
     # Step 4: Run your Python script
     - name: Run Python script
       run: python get_top_100_stocks.py  # Replace with the actual path to your Python script
