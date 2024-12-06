@@ -33,3 +33,7 @@ jobs:
     - name: Run Python script
       run: python get_top_100_stocks.py  # Replace with the actual path to your Python script
 
+    - name: Cleanup Firebase credentials
+      run: rm firebase_credentials.json
+
+
