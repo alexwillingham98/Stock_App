@@ -38,7 +38,7 @@ jobs:
         echo "\"auth_uri\": \"${{ secrets.FIREBASE_AUTH_URI }}\"," >> firebase_credentials.json
         echo "\"token_uri\": \"${{ secrets.FIREBASE_TOKEN_URI }}\"," >> firebase_credentials.json
         echo "\"auth_provider_x509_cert_url\": \"${{ secrets.FIREBASE_AUTH_PROVIDER_URL }}\"," >> firebase_credentials.json
-        echo "\"client_x509_cert_url\": \"${{ secrets.FIREBASE_CIENT_URL }}\"" >> firebase_credentials.json
+        echo "\"client_x509_cert_url\": \"${{ secrets.FIREBASE_CIENT_URL }}\"," >> firebase_credentials.json
         echo "\"universe_domain\": \"${{ secrets.FIREBASE_UNIVERSE_DOMAIN }}\"" >> firebase_credentials.json
         echo "}" >> firebase_credentials.json
     # Step 4: Run your Python script
